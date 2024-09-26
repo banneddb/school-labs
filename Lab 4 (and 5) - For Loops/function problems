@@ -7,3 +7,6 @@ def bottlesofbeer(n):
         print("Take one down, pass it around", bottles_left-1, "bottles of beer on the wall")
 
 bottlesofbeer(total_bottles)
+
+
+sigma
