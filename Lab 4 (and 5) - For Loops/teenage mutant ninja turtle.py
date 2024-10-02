@@ -1,25 +1,17 @@
 import turtle
 jon = turtle.Turtle()
-jon.speed(1)
+jon.speed(10)
+numSides = 8
+sideLength = 50
+numShapes = 20
+
+def drawNgonSpiral(jon, numSides, sideLength,numShapes):
+    for i in range(sideLength*numShapes):
+        jon.lt(360/numSides)
+        jon.forward(sideLength+i)
+        jon.lt(i)
 
 
-squareSize = 100
-length = 5
+drawNgonSpiral(jon, numSides, sideLength,numShapes)
 
-def drawSquare(jon, squareSize):
-    for i in range(4):
-        jon.forward(squareSize)
-        jon.rt(90)
-
-
-def drawRow(jon, length, squareSize):
-    for i in range(length):
-        drawSquare(jon, squareSize)
-        jon.forward(100)
-
-
-
-drawRow(jon, length, squareSize)
-
-
-jon.done()
+turtle.done()

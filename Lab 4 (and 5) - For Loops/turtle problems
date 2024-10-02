@@ -1,3 +1,5 @@
+
+# Square
 import turtle
 jon = turtle.Turtle()
 jon.speed(1)
@@ -14,13 +16,15 @@ def drawSquare(jon, squareSize):
 drawSquare(jon, squareSize)
 
 turtle.done()
+######################################################
+# Row
 
 import turtle
 jon = turtle.Turtle()
 jon.speed(1)
 
 
-squareSize = 100
+squareSize = 50
 length = 5
 
 def drawSquare(jon, squareSize):
@@ -40,3 +44,116 @@ drawRow(jon, length, squareSize)
 
 
 jon.done()
+
+######################################################
+#Grid
+
+import turtle
+jon = turtle.Turtle()
+jon.speed(3)
+
+
+squareSize = 100
+length = 5
+size = 5
+
+def drawSquare(jon, squareSize):
+    for i in range(4):
+        jon.forward(squareSize)
+        jon.rt(90)
+
+
+def drawRow(jon, length, squareSize):
+    for i in range(length):
+        drawSquare(jon, squareSize)
+        jon.forward(100)
+
+
+def drawGrid(jon, size, squareSize):
+    for i in range(size):
+        drawRow(jon,length,squareSize)
+        L = (i+1)*-20
+        jon.penup()
+        jon.setpos(0, L*size)
+        jon.pendown()
+        
+drawGrid(jon, size, squareSize)
+
+jon.done()
+
+######################################################
+# Stair Case
+
+import turtle
+jon = turtle.Turtle()
+jon.speed(3)
+
+
+squareSize = 100
+length = 5
+height = 5
+
+
+def drawSquare(jon, squareSize):
+    for i in range(4):
+        jon.forward(squareSize)
+        jon.rt(90)
+
+
+def drawRow(jon, length, squareSize):
+    for i in range(length):
+        drawSquare(jon, squareSize)
+        jon.forward(100)
+
+
+def drawSquareStairs(jon, height, squareSize):
+    for i in range(height):
+            drawRow(jon, length-i, squareSize)
+            L = (i+1)*20
+            jon.penup()
+            jon.setpos(0, L*height)
+            jon.pendown()
+
+
+drawSquareStairs(jon, height, squareSize)
+
+jon.done()
+
+######################################################
+# N-sided Polygon
+
+import turtle
+jon = turtle.Turtle()
+jon.speed(1)
+numSides = 8
+sideLength = 100
+
+def drawNgon(jon, numSides, sideLength):
+    for i in range(numSides):
+        jon.forward(sideLength)
+        jon.rt(360/numSides)
+
+drawNgon(jon, numSides, sideLength)
+
+turtle.done()
+
+#######################################################
+# Spiral, wait until the end.
+
+import turtle
+jon = turtle.Turtle()
+jon.speed(10)
+numSides = 8
+sideLength = 50
+numShapes = 20
+
+def drawNgonSpiral(jon, numSides, sideLength,numShapes):
+    for i in range(sideLength*numShapes):
+        jon.lt(360/numSides)
+        jon.forward(sideLength+i)
+        jon.lt(i)
+
+
+drawNgonSpiral(jon, numSides, sideLength,numShapes)
+
+turtle.done()
