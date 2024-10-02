@@ -1,17 +1,9 @@
-n = int(input("What number do you want?"))
+num = int(input("What is the integer for the multiplication table?"))
 
+def multiplication_table(num):
+    for row in range(1, num+1):
+        for collum in range(1, num+1):
+            print(row*collum, end="  ")
+        print()
 
-def thepowerof(n):
-    total = 0
-    for i in range(n):
-        L = i+1
-        total += L**2
-        if L!=n:
-            print(L**2, end=" + ")
-        else:
-            print(L**2, end=" = ")
-    print(total)
-    
-
-
-thepowerof(n)
+multiplication_table(num)
