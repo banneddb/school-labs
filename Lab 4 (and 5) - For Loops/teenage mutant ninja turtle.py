@@ -3,7 +3,8 @@ jon = turtle.Turtle()
 jon.speed(1)
 
 
-squareSize = 150
+squareSize = 100
+length = 5
 
 def drawSquare(jon, squareSize):
     for i in range(4):
@@ -11,6 +12,14 @@ def drawSquare(jon, squareSize):
         jon.rt(90)
 
 
-drawSquare(jon, squareSize)
+def drawRow(jon, length, squareSize):
+    for i in range(length):
+        drawSquare(jon, squareSize)
+        jon.forward(100)
 
-turtle.done()
+
+
+drawRow(jon, length, squareSize)
+
+
+jon.done()
