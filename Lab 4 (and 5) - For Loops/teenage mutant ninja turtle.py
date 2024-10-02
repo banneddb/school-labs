@@ -14,4 +14,3 @@ def drawSquare(jon, squareSize):
 drawSquare(jon, squareSize)
 
 turtle.done()
-
