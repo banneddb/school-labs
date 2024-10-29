@@ -1,32 +1,52 @@
 card_num = input("Insert your credit card number:")
-card_num = int(card_num)
+num_list = [int(digit) for digit in str(card_num)]
 
-if len(card_num)<13 or len(card_num)>16:
-    print("INVALID")
-elif len(card_num) == 15:
-    if 3 in card_num[0]:
-        if 4 == card_num[1]:
-            print("AMERICAN EXPRESS")
-        elif 7 == card_num[1]:
-            print("AMERICAN EXPRESS")
+
+def luhn_algo(num_list):
+    digit_list = []
+    not_multiplied = num_list[0::2]
+    for num in num_list[-2::-2]:
+        num = num*2
+        digits = [int(digit) for digit in str(num)]
+        digit_list.extend(digits)
+    total = sum(digit_list + not_multiplied)
+    print("Check sum number is:" , total)
+    last_digit = total % 10
+    if last_digit == 0:
+        print("This card is valid!")
+    else:
+        print("This card is invalid!")
+
+def card_check(card_num):
+    if len(card_num)<13 or len(card_num)>16:
+        print("INVALID")
+    elif len(card_num) == 15:
+        if "3" in card_num[0]:
+            if "4" == card_num[1]:
+                print("AMERICAN EXPRESS")
+            elif "7" == card_num[1]:
+                print("AMERICAN EXPRESS")
+            else:
+                print("INVALID")
+    elif len(card_num) == 16:
+        if "5" == card_num[0]:
+            if "1" == card_num[1]:
+                print("MASTERCARD")
+            elif "2" == card_num[1]:
+                print("MASTERCARD")
+            elif "3" == card_num[1]:
+                print("MASTERCARD")
+            elif "4" ==card_num[1]:
+                print("MASTERCARD")
+            elif "5" == card_num[1]:
+                print("MASTERCARD")
+            else:
+                print("INVALID")
+    elif len(card_num) == 13 or len(card_num) == 16:
+        if "4" == card_num[0]:
+            print("VISA")
         else:
             print("INVALID")
-elif len(card_num) == 16:
-    if 5 == card_num[0]:
-        if 1 == card_num[1]:
-            print("MASTERCARD")
-        elif 2 == card_num[1]:
-            print("MASTERCARD")
-        elif 3 == card_num[1]:
-            print("MASTERCARD")
-        elif 4 ==card_num[1]:
-            print("MASTERCARD")
-        elif 5 == card_num[1]:
-            print("MASTERCARD")
-        else:
-             print("INVALID")
-elif len(card_num) == 13 or len(card_num) == 16:
-    if 4 == card_num[0]:
-        print("VISA")
-    else:
-        print("INVALID")
+
+luhn_algo(num_list)
+card_check(card_num)
